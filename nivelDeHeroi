@@ -1,0 +1,41 @@
+// Importa o módulo readline do Node.js, que permite a leitura assíncrona de entrada do usuário
+const readline = require('readline');
+
+// Cria uma interface de leitura assíncrona usando o módulo readline
+const rl = readline.createInterface({
+  input: process.stdin,  // Define a entrada como o console padrão
+  output: process.stdout  // Define a saída como o console padrão
+});
+
+// Solicita ao usuário para digitar o nome do herói
+rl.question("Digite o nome do herói: ", function(nomeDoHeroi) {
+  // Solicita ao usuário para digitar o nível de experiência do herói
+  rl.question("Digite o nível de experiência do herói: ", function(nivelDeExperiencia) {
+    // Converte o nível de experiência de uma string para um número inteiro
+    nivelDeExperiencia = parseInt(nivelDeExperiencia);
+
+    // Estrutura condicional para determinar a mensagem com base no nível de experiência
+    if (nivelDeExperiencia <= 1000) {
+        console.log(`${nomeDoHeroi} Seu nível é de Ferro.`);
+    } else if (nivelDeExperiencia >= 1001 && nivelDeExperiencia <= 2000) {
+        console.log(`${nomeDoHeroi} Seu nível é de Bronze.`);
+    } else if (nivelDeExperiencia >= 2001 && nivelDeExperiencia <= 5000) {
+        console.log(`${nomeDoHeroi} Seu nível é de Prata.`);
+    } else if (nivelDeExperiencia >= 5001 && nivelDeExperiencia <= 7000) {
+        console.log(`${nomeDoHeroi} Seu nível é de Ouro.`);
+    } else if (nivelDeExperiencia >= 7001 && nivelDeExperiencia <= 8000) {
+        console.log(`${nomeDoHeroi} Seu nível é de Platina Diamante.`);
+    } else if (nivelDeExperiencia >= 8001 && nivelDeExperiencia <= 9000) {
+        console.log(`${nomeDoHeroi} Seu nível é de Ascendente.`);
+    } else if (nivelDeExperiencia >= 9001 && nivelDeExperiencia <= 10000) {
+        console.log(`${nomeDoHeroi} Seu nível é de Imortal.`);
+    } else if (nivelDeExperiencia >= 10001) {
+        console.log(`${nomeDoHeroi} Seu nível é de Radiante.`);
+    } else {
+        console.log("Nível de experiência inválido.");
+    }
+
+    // Fecha a interface de leitura, indicando que não há mais perguntas a serem feitas
+    rl.close();
+  });
+});
